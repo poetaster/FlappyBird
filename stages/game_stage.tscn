@@ -104,7 +104,7 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect(\"pressed\", self, \"_on_pressed\")
+	#connect(\"pressed\", self, \"_on_pressed\")
 	grab_focus()
 	pass # Replace with function body.
 
@@ -117,6 +117,14 @@ func _on_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_btn_instruction_button_up():
+	var bird = utils.get_main_node().get_node(\"bird\")
+	if bird:
+		bird.set_state(bird.STATE_FLAPPING)
+	hide()
+	pass # Replace with function body.
 "
 
 [sub_resource type="GDScript" id=5]
@@ -327,6 +335,7 @@ script = SubResource( 1 )
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="lbl_score" type="Label" parent="hud"]
+visible = false
 margin_top = 10.0
 margin_right = 144.0
 margin_bottom = 24.0
@@ -340,6 +349,7 @@ __meta__ = {
 }
 
 [node name="btn_pause" type="TextureButton" parent="hud"]
+visible = false
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 23.0
@@ -371,6 +381,7 @@ __meta__ = {
 }
 
 [node name="con_instruciton" type="Container" parent="hud"]
+visible = false
 margin_right = 144.0
 margin_bottom = 256.0
 mouse_filter = 1
@@ -499,6 +510,7 @@ playback_speed = 1.5
 anims/show = SubResource( 9 )
 
 [node name="con_pause" type="Container" parent="hud"]
+visible = false
 margin_right = 144.0
 margin_bottom = 256.0
 mouse_filter = 1
@@ -530,3 +542,5 @@ margin_right = 92.0
 margin_bottom = 135.0
 texture_normal = ExtResource( 29 )
 script = SubResource( 12 )
+[connection signal="button_up" from="hud/btn_instruction" to="hud/btn_instruction" method="_on_btn_instruction_button_up"]
+[connection signal="button_up" from="hud/con_instruciton/hbox_buttons/btn_play" to="hud/con_instruciton/hbox_buttons/btn_play" method="_on_btn_play_button_up"]

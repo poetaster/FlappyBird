@@ -33,6 +33,5 @@ func _process(delta):
 	
 
 func _on_TextureButton_button_up():
-	print('ahoi')
 	queue_free()
 	pass # Replace with function body.
