@@ -38,6 +38,7 @@ func go_init_pos():
 		init_pos.x += camera.get_total_pos().x
 	position = init_pos
 	pass
+	
 func spawn_and_move():
 	spawn_pipe()
 	go_next_pos()
