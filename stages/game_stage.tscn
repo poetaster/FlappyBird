@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/bird.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://sprites/button_pause.png" type="Texture" id=27]
 [ext_resource path="res://sprites/button_resume.png" type="Texture" id=28]
 [ext_resource path="res://sprites/button_menu.png" type="Texture" id=29]
+[ext_resource path="res://scenes/badbird.tscn" type="PackedScene" id=30]
 
 [sub_resource type="GDScript" id=1]
 resource_name = "shaker"
@@ -317,6 +318,8 @@ func _on_pressed():
 [node name="bird" parent="." instance=ExtResource( 2 )]
 position = Vector2( 35, 128 )
 
+[node name="badbird" parent="." instance=ExtResource( 30 )]
+
 [node name="camera" type="Camera2D" parent="."]
 offset = Vector2( -36, 0 )
 anchor_mode = 0
@@ -335,7 +338,6 @@ script = SubResource( 1 )
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="lbl_score" type="Label" parent="hud"]
-visible = false
 margin_top = 10.0
 margin_right = 144.0
 margin_bottom = 24.0
@@ -349,11 +351,10 @@ __meta__ = {
 }
 
 [node name="btn_pause" type="TextureButton" parent="hud"]
-visible = false
 margin_left = 10.0
-margin_top = 10.0
+margin_top = 232.0
 margin_right = 23.0
-margin_bottom = 24.0
+margin_bottom = 246.0
 mouse_filter = 1
 texture_normal = ExtResource( 27 )
 script = SubResource( 3 )
@@ -381,7 +382,6 @@ __meta__ = {
 }
 
 [node name="con_instruciton" type="Container" parent="hud"]
-visible = false
 margin_right = 144.0
 margin_bottom = 256.0
 mouse_filter = 1
@@ -510,7 +510,6 @@ playback_speed = 1.5
 anims/show = SubResource( 9 )
 
 [node name="con_pause" type="Container" parent="hud"]
-visible = false
 margin_right = 144.0
 margin_bottom = 256.0
 mouse_filter = 1
@@ -527,6 +526,8 @@ color = Color( 0, 0, 0, 0.301961 )
 
 [node name="btn_resume" type="TextureButton" parent="hud/con_pause"]
 pause_mode = 2
+anchor_top = 0.867188
+anchor_bottom = 0.867188
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 23.0

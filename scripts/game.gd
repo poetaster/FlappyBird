@@ -4,6 +4,7 @@ extends Node
 const GROUP_PIPES 	= "pipes"
 const GROUP_GROUNDS 	= "grounds"
 const GROUP_BIRDS 	= "birds"
+const GROUP_BBIRDS = "badbirds"
 
 const MEDAL_BRONZ	= 10
 const MEDAL_SILVER	= 20

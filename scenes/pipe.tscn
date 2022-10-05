@@ -40,10 +40,10 @@ position = Vector2( 13, 0 )
 scale = Vector2( 1, 1.52 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = -8.31139
-margin_top = 103.132
-margin_right = 31.6886
-margin_bottom = 143.132
+margin_left = -8.0
+margin_top = -65.0
+margin_right = 9.0
+margin_bottom = -38.0
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
