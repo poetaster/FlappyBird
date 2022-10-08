@@ -15,8 +15,16 @@ func _ready():
 	add_to_group(game.GROUP_BBIRDS)
 	connect("body_entered", self, "_on_body_entered")
 	pass
+	
 func _physics_process(delta):	
 	state.update(delta)
+	
+	if self.get_global_position().x <= camera.get_total_pos().x:
+		#print(self.get_global_position().x )
+		#print(camera.get_total_pos().x)
+		#print("died")
+		queue_free()
+		
 func _input(event):
 	state.input(event)
 	pass
@@ -61,12 +69,19 @@ class FlyingState:
 		pass
 	func update(delta):
 		pass
-
 	func input(event):
+		pass
+	func on_body_entered(other_body):
+		if other_body.is_in_group(game.GROUP_PIPES):
+			bird.set_state(bird.STATE_HIT)
+		elif other_body.is_in_group(game.GROUP_BIRDS):
+			bird.set_state(bird.STATE_HIT)
+		elif other_body.is_in_group(game.GROUP_GROUNDS):
+			bird.set_state(bird.STATE_GROUNDED)
 		pass
 	func exit():
 		bird.set_gravity_scale(prev_gravity_scale)
-		bird.get_node("anim").stop();
+		bird.get_node("banim").stop();
 		bird.get_node("anim_sprite").position  = Vector2(0,0)
 		pass
 		
@@ -136,3 +151,4 @@ class GroundedState:
 		pass
 	func exit():
 		pass
+

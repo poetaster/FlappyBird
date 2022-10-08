@@ -1,5 +1,5 @@
 extends HBoxContainer
-
+var player
 const sprite_number = [
 	preload("res://sprites/number_middle_0.png"),
 	preload("res://sprites/number_middle_1.png"),
@@ -31,6 +31,7 @@ func count_to_score():
 		
 		yield(get_tree(), "idle_frame")
 	game.score_best = game.score_current
+	
 	emit_signal("counter_finished")
 	pass
 	

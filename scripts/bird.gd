@@ -9,6 +9,7 @@ const STATE_GROUNDED		= 3
 var speed = 50
 signal state_changed
 var prev_state = STATE_FLAPPING
+var player
 
 func _ready():
 	add_to_group(game.GROUP_BIRDS)
@@ -87,6 +88,8 @@ class FlappingState:
 	func on_body_entered(other_body):
 		if other_body.is_in_group(game.GROUP_PIPES):
 			bird.set_state(bird.STATE_HIT)
+		elif other_body.is_in_group(game.GROUP_BBIRDS):
+			bird.set_state(bird.STATE_HIT)
 		elif other_body.is_in_group(game.GROUP_GROUNDS):
 			bird.set_state(bird.STATE_GROUNDED)
 		pass
@@ -132,4 +135,5 @@ class GroundedState:
 	func input(event):
 		pass
 	func exit():
+
 		pass

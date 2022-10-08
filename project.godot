@@ -8,15 +8,22 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player.gd"
+} ]
 _global_script_class_icons={
-
+"Player": ""
 }
 
 [application]
 
 config/name="Flappy Bird"
 run/main_scene="res://stages/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="harbour-flappybird"
 config/icon="res://icon.png"
 
 [autoload]

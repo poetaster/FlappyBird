@@ -48,7 +48,7 @@ func spawn_pipe():
 	var new_pipe = scn_pipe.instance()
 	new_pipe.position = position;
 	new_pipe.connect("tree_exited", self, "spawn_and_move")
-	get_node("container").add_child(new_pipe)
+	get_node("container").call_deferred('add_child',new_pipe)
 	pass
 	
 func go_next_pos():

@@ -13,5 +13,5 @@ func spwan_ground():
 	new_ground.position = position
 	new_ground.connect("tree_exited", self, "spwan_ground")
 	position += Vector2(GROUND_WIDTH, 0)
-	get_node("container").add_child(new_ground)
+	get_node("container").call_deferred('add_child',new_ground)
 	pass
