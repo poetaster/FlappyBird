@@ -25,11 +25,3 @@ func change_stage(stage_path):
 	#get_node("amin").play("fade_out")
 	pass
 
-func load_data(file_name):
-	if ResourceLoader.exists(file_name):
-		var player = ResourceLoader.load(file_name)
-		if player is Player: # Check that the data is valid
-			return player
-	else:
-		print("now")
-		return Player.new()
