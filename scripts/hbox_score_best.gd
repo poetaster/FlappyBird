@@ -48,7 +48,7 @@ func save_score():
 		if game.score_best > player.high_score:
 			player.high_score = game.score_best
 			var result = ResourceSaver.save('user://player.res', player)
-			print(result)
+			#print(result)
 			assert(result == OK)
 
 func load_data(file_name):
@@ -57,5 +57,5 @@ func load_data(file_name):
 		if player is Player: # Check that the data is valid
 			return player
 	else:
-		print("now")
+		#print("now")
 		return Player.new()

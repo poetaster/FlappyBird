@@ -16,14 +16,13 @@ func _ready():
 	connect("body_entered", self, "_on_body_entered")
 	pass
 	
-func _physics_process(delta):	
-	state.update(delta)
-	
+func _physics_process(delta):
 	if self.get_global_position().x <= camera.get_total_pos().x:
 		#print(self.get_global_position().x )
 		#print(camera.get_total_pos().x)
 		#print("died")
 		queue_free()
+	state.update(delta)
 		
 func _input(event):
 	state.input(event)
