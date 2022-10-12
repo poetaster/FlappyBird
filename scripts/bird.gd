@@ -135,5 +135,4 @@ class GroundedState:
 	func input(event):
 		pass
 	func exit():
-
 		pass

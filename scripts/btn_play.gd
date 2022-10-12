@@ -12,6 +12,7 @@ func _ready():
 #	pass
 
 func _on_btn_play_button_up():
-	stage_manager.change_stage(stage_manager.GAME_STAGE)
+	stage_manager.next_stage()
+	#stage_manager.change_stage(stage_manager.GAME_STAGE)
 	disabled = true
 	pass # Replace with function body.
