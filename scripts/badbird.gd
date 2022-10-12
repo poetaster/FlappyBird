@@ -63,7 +63,7 @@ class FlyingState:
 		self.bird = bird
 		bird.get_node("banim").play("flying")
 		prev_gravity_scale = bird.get_gravity_scale()
-		bird.set_linear_velocity(-Vector2(bird.speed, bird.get_linear_velocity().y))
+		bird.set_linear_velocity(-Vector2(bird.speed+35, bird.get_linear_velocity().y))
 		bird.set_gravity_scale(0)
 		pass
 	func update(delta):

@@ -41,9 +41,7 @@ func change_stage(stage_path):
 	
 func _on_score_current_changed():
 	if game.score_current > 5:
-		print(current_stage)
 		if current_stage < 2:
 			current_stage = current_stage + 1
-			
 		stage_manager.next_stage()
 	pass

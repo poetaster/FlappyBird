@@ -47,7 +47,7 @@ func go_init_pos():
 	randomize()
 	var init_pos = position
 	# pos.x   = rand_range(0+16, utils.view_size.width-16)
-	init_pos.x  += get_viewport_rect().size.x
+	init_pos.x  += get_viewport_rect().size.x - 16
 	init_pos.y = rand_range(0 + OFFSET_Y, get_viewport_rect().size.y - GROUND_HEIGHT - OFFSET_Y)
 	var camera = utils.get_main_node().get_node("camera")
 	#if camera:
