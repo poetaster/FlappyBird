@@ -93,7 +93,7 @@ tracks/1/keys = {
 }
 
 [node name="badbird" type="RigidBody2D"]
-position = Vector2( 133.277, 20.546 )
+position = Vector2( 132.899, 20.6405 )
 gravity_scale = 5.0
 contacts_reported = 1
 contact_monitor = true

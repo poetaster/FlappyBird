@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/coin_visible.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/background.tscn" type="PackedScene" id=2]
+
+[node name="interstitial" type="Node2D"]
+
+[node name="coinv" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 56 )
+
+[node name="coinv2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 32 )
+
+[node name="coinv3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 113.52, 30.1615 )
+
+[node name="coinv4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 121.14, 107.553 )
+
+[node name="coinv5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 45.2684, 123.698 )
+
+[node name="background" parent="." instance=ExtResource( 2 )]

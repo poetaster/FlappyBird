@@ -4,7 +4,7 @@ const GAME_STAGE = "res://stages/game_stage.tscn"
 const GAME_STAGE2 = "res://stages/game_stage2.tscn"
 const MENU_STAGE = "res://stages/main_menu.tscn"
 
-var current_stage = 0
+var current_stage = 1
 signal stage_changed
 
 
@@ -14,8 +14,8 @@ func _ready():
 	pass
 
 func next_stage():
-	print(current_stage)
-	if current_stage == 0:
+
+	if current_stage == 1:
 		stage_manager.change_stage(stage_manager.GAME_STAGE)
 	else:
 		stage_manager.change_stage(stage_manager.GAME_STAGE2)
@@ -23,6 +23,7 @@ func next_stage():
 	pass
 	
 func change_stage(stage_path):
+	
 	#fade to black
 	var old_layer = layer
 	layer = 5
@@ -41,7 +42,14 @@ func change_stage(stage_path):
 	
 func _on_score_current_changed():
 	if game.score_current > 5:
-		if current_stage < 2:
+		if current_stage < 3:
 			current_stage = current_stage + 1
+		elif current_stage == 3:
+			current_stage = 1
+		get_node("anim").play("fade_in")
+		get_node("sfx_swooshing").play()
+		yield(get_node("anim"), "animation_finished")
+		get_tree().change_scene('res://scenes/interstitial.tscn')
+		yield(utils.create_timer(rand_range(2, 5)), "timeout")
 		stage_manager.next_stage()
 	pass

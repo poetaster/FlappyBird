@@ -29,7 +29,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -40,7 +40,6 @@ layer = -2
 script = ExtResource( 2 )
 
 [node name="color_black" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 144.0
 margin_bottom = 256.0
 mouse_filter = 1
