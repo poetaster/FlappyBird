@@ -55,7 +55,7 @@ func animate_next():
 	get_node("sfx_swooshing").play()
 	yield(get_node("anim"), "animation_finished")
 	get_tree().change_scene('res://stages/game_interstitial.tscn')
-	yield(utils.create_timer(rand_range(4, 5)), "timeout")
+	yield(utils.create_timer(5), "timeout")
 	stage_manager.next_stage()
 	pass
 	
