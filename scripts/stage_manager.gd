@@ -14,7 +14,7 @@ func _ready():
 	pass
 
 func next_stage():
-
+	
 	if current_stage == 1:
 		stage_manager.change_stage(stage_manager.GAME_STAGE)
 	else:
@@ -23,7 +23,6 @@ func next_stage():
 	pass
 	
 func change_stage(stage_path):
-	
 	#fade to black
 	var old_layer = layer
 	layer = 5
@@ -34,22 +33,29 @@ func change_stage(stage_path):
 	get_tree().change_scene(stage_path)
 	layer = old_layer
 	emit_signal("stage_changed")
-	print(current_stage)
-
 	#fade from black
 	#get_node("amin").play("fade_out")
 	pass
 	
 func _on_score_current_changed():
-	if game.score_current > 5:
-		if current_stage < 3:
-			current_stage = current_stage + 1
-		elif current_stage == 3:
-			current_stage = 1
-		get_node("anim").play("fade_in")
-		get_node("sfx_swooshing").play()
-		yield(get_node("anim"), "animation_finished")
-		get_tree().change_scene('res://scenes/interstitial.tscn')
-		yield(utils.create_timer(rand_range(2, 5)), "timeout")
-		stage_manager.next_stage()
+	print(current_stage)
+	if current_stage == 1:
+		if game.score_current >  45:
+			current_stage = 2
+			animate_next()
+	elif current_stage == 2:
+		#print(game.score_current)
+		if game.score_current > 55:
+			# current_stage = 1
+			animate_next()
 	pass
+
+func animate_next():
+	get_node("anim").play("fade_in")
+	get_node("sfx_swooshing").play()
+	yield(get_node("anim"), "animation_finished")
+	get_tree().change_scene('res://stages/game_interstitial.tscn')
+	yield(utils.create_timer(rand_range(4, 5)), "timeout")
+	stage_manager.next_stage()
+	pass
+	
