@@ -1,4 +1,4 @@
-# script: bird
+# script: badbird
 extends RigidBody2D
 
 onready var state = FlyingState.new(self)
@@ -71,9 +71,10 @@ class FlyingState:
 	func input(event):
 		pass
 	func on_body_entered(other_body):
-		if other_body.is_in_group(game.GROUP_PIPES):
-			bird.set_state(bird.STATE_HIT)
-		elif other_body.is_in_group(game.GROUP_BIRDS):
+		# badbird doesnt' care about pipes
+		#if other_body.is_in_group(game.GROUP_PIPES):
+		#	bird.set_state(bird.STATE_HIT)
+		if other_body.is_in_group(game.GROUP_BIRDS):
 			bird.set_state(bird.STATE_HIT)
 		elif other_body.is_in_group(game.GROUP_GROUNDS):
 			bird.set_state(bird.STATE_GROUNDED)

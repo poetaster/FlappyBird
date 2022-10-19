@@ -1,0 +1,6 @@
+MOUSE_FILTER_PASS = 1 
+Scene.mouse_filter = MOUSE_FILTER_IGNORE
+Scene.mouse_filter = Control.MOUSE_FILTER_IGNORE
+Scene.mouse_filter = 2
+Scene.MOUSE_FILTER_IGNORE:wq
+

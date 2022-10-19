@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const GAME_STAGE = "res://stages/game_stage.tscn"
 const GAME_STAGE2 = "res://stages/game_stage2.tscn"
+const GAME_STAGE3 = "res://stages/game_stage3.tscn"
 const MENU_STAGE = "res://stages/main_menu.tscn"
 
 var current_stage = 1
@@ -17,8 +18,10 @@ func next_stage():
 	
 	if current_stage == 1:
 		stage_manager.change_stage(stage_manager.GAME_STAGE)
-	else:
+	elif current_stage == 2:
 		stage_manager.change_stage(stage_manager.GAME_STAGE2)
+	else:
+		stage_manager.change_stage(stage_manager.GAME_STAGE3)
 		
 	pass
 	
@@ -38,15 +41,17 @@ func change_stage(stage_path):
 	pass
 	
 func _on_score_current_changed():
-	print(current_stage)
 	if current_stage == 1:
 		if game.score_current >  45:
 			current_stage = 2
 			animate_next()
 	elif current_stage == 2:
-		#print(game.score_current)
-		if game.score_current > 55:
-			# current_stage = 1
+		if game.score_current > 50:
+			current_stage = 3
+			animate_next()
+	elif current_stage == 3:
+		if game.score_current > 60:
+			#current_stage = 3
 			animate_next()
 	pass
 

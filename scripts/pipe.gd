@@ -25,8 +25,7 @@ func _ready():
 
 		
 func _process(delta):
-	if state == true:
-		print("holy shit")
+	#print(right.get_global_position().y)
 	if right.get_global_position().x <= camera.get_total_pos().x:
 		queue_free()
 	pass

@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Flappy Bird"
 run/main_scene="res://stages/main_menu.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="de.poetaster/harbour-flappybird"
+config/custom_user_dir_name="harbour-flappybird"
 config/icon="res://icon.png"
 
 [autoload]

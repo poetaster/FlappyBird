@@ -27,12 +27,12 @@ func _on_score_best_changed():
 	var player
 	player = load_data('user://player.res')
 	if player.high_score > game.score_best:
-		game.score.best = player.high_scorea
+		game.score.best = player.high_score
 	else:
 		save_score()
-		
 	set_number(game.score_best)
 	pass
+	
 func set_number(num):
 	for child in get_children():
 		child.free()

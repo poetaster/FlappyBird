@@ -1,4 +1,4 @@
-#scripts: spawner_bbird
+#scripts: spawner_bbird_halfpipe
  
 extends Node2D
 	
@@ -12,12 +12,8 @@ const AMOUNT_TO_FILL_VIEW = 3
 
 func _ready():
 	var bird = utils.get_main_node().get_node("bird")
-	var bbird = utils.get_main_node().get_node("badbird")
 	if (bird):
 		bird.connect("state_changed", self, "_on_bird_state_changed", [], CONNECT_ONESHOT)
-	if (bbird):
-		print('badbird')
-		bbird.connect("state_changed", self, "_on_bird_state_changed", [], CONNECT_ONESHOT)
 	pass
 	
 func _on_bird_state_changed(bird):
@@ -30,9 +26,6 @@ func _on_bird_state_changed(bird):
 
 func start():
 	spawn_and_move()
-	# go_init_pos()
-	#for i in range(AMOUNT_TO_FILL_VIEW):
-	#	spawn_and_move()
 
 func spawn_and_move():
 	go_init_pos()
@@ -47,12 +40,14 @@ func go_init_pos():
 	var init_pos = position
 	# pos.x   = rand_range(0+16, utils.view_size.width-16)
 	init_pos.x  += get_viewport_rect().size.x - 6
-	init_pos.y = rand_range(0 + OFFSET_Y, get_viewport_rect().size.y - GROUND_HEIGHT - OFFSET_Y)
-	var camera = utils.get_main_node().get_node("camera")
-	#if camera:
-	#	init_pos.x += camera.get_total_pos().x
+	# position enemy VS bird
+	var bird = utils.get_main_node().get_node("bird")
+	if (bird):
+		init_pos.y = rand_range(OFFSET_Y, bird.position.y + 20)
+	else:
+		init_pos.y = rand_range(0 + OFFSET_Y, get_viewport_rect().size.y - GROUND_HEIGHT)
 	position = init_pos
-	#print(position)
+
 	
 	
 func spawn_bbird():
