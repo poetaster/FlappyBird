@@ -63,6 +63,7 @@ class FlyingState:
 		self.bird = bird
 		bird.get_node("banim").play("flying")
 		prev_gravity_scale = bird.get_gravity_scale()
+		# we speed up bad bird vs. bird
 		bird.set_linear_velocity(-Vector2(bird.speed+40, bird.get_linear_velocity().y))
 		bird.set_gravity_scale(0)
 		pass
@@ -72,8 +73,8 @@ class FlyingState:
 		pass
 	func on_body_entered(other_body):
 		# badbird doesnt' care about pipes
-		#if other_body.is_in_group(game.GROUP_PIPES):
-		#	bird.set_state(bird.STATE_HIT)
+		if other_body.is_in_group(game.GROUP_PIPES):
+			bird.set_state(bird.STATE_HIT)
 		if other_body.is_in_group(game.GROUP_BIRDS):
 			bird.set_state(bird.STATE_HIT)
 		elif other_body.is_in_group(game.GROUP_GROUNDS):

@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/bird_orange_1.png" type="Texture" id=5]
 [ext_resource path="res://sprites/bird_blue_1.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 80 )
 
 [node name="halfpipe" type="StaticBody2D"]
@@ -18,7 +18,7 @@ texture = ExtResource( 2 )
 
 [node name="shape_bottom" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 111 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="right" type="Position2D" parent="."]
 position = Vector2( 13, 25 )

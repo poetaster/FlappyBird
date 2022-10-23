@@ -103,7 +103,8 @@ class HitState:
 	var bird
 	func _init(bird):
 		self.bird = bird
-		bird.set_linear_velocity(Vector2(0,0))
+		# we don't need to stop the velocity
+		#bird.set_linear_velocity(Vector2(0,0))
 		bird.set_angular_velocity(2)
 		var other_body = bird.get_colliding_bodies()[0]
 		bird.add_collision_exception_with(other_body)
