@@ -104,6 +104,8 @@ class HitState:
 	func _init(bird):
 		self.bird = bird
 		# we don't need to stop the velocity
+		# Not setting it prevents the bird from getting
+		# stuck on pipes in stage 3.
 		#bird.set_linear_velocity(Vector2(0,0))
 		bird.set_angular_velocity(2)
 		var other_body = bird.get_colliding_bodies()[0]
